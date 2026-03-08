@@ -1,0 +1,21 @@
+{
+  "name": "intelligent-test-selection-ml",
+  "version": "1.0.0",
+  "description": "ML-based intelligent Playwright test selection for CI/CD",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test -c tests/playwright/playwright.config.js",
+    "test:selected": "node ./tests/playwright/run-selected.js"
+  },
+  "keywords": [
+    "playwright",
+    "machine-learning",
+    "ci-cd",
+    "test-selection"
+  ],
+  "author": "Rajeev Srivastava",
+  "license": "MIT",
+  "devDependencies": {
+    "@playwright/test": "^1.52.0"
+  }
+}
