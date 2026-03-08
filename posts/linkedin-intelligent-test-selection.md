@@ -16,6 +16,9 @@ If commit touches `inventory service`, model can select:
 Result target:
 70-80% faster feedback loops (with fallback safety strategy).
 
+Research note:
+This is an independent research-style project and does not use proprietary company data. The current training data is synthetic for reproducible experimentation.
+
 Stack used:
 - Playwright
 - Python (scikit-learn)

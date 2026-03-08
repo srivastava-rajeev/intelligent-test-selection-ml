@@ -27,6 +27,15 @@ Expected outcome: 70-80% faster feedback loops in many repositories (depends on 
 
 ---
 
+## Research Disclosure
+
+- This repository is an independent research-style engineering study by the author.
+- It is not based on any proprietary company dataset.
+- The current dataset is synthetic and generated locally for reproducible experimentation.
+- It should be treated as a prototype baseline, not a peer-reviewed publication.
+
+---
+
 ## Architecture
 
 Code Change -> Feature Extraction -> ML Selector -> Test Subset -> Playwright Run -> Feedback Logs -> Retraining
@@ -129,6 +138,7 @@ SELECTED_TESTS="tests/playwright/tests/inventory.spec.js,tests/playwright/tests/
 
 - Dev.to draft: [posts/devto-intelligent-test-selection.md](posts/devto-intelligent-test-selection.md)
 - LinkedIn draft: [posts/linkedin-intelligent-test-selection.md](posts/linkedin-intelligent-test-selection.md)
+- Screenshot guide: [docs/post-screenshot-plan.md](docs/post-screenshot-plan.md)
 
 ---
 

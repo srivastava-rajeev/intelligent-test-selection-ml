@@ -4,6 +4,10 @@ CI pipelines become slow as regression suites grow. In many teams, every commit 
 
 In this project, I built a practical prototype that predicts impacted Playwright tests using machine learning.
 
+## Research Note
+
+This is an independent research-style implementation. I did not use proprietary company data. The current version is trained on synthetic, reproducible commit-impact history to validate the approach.
+
 ## The Problem
 
 When all tests run on every commit:
@@ -58,6 +62,18 @@ The repository includes:
 Intelligent test selection is a practical way to improve CI throughput. With good historical data and conservative fallback strategy, teams can achieve significant speedups while preserving confidence.
 
 In many repositories this can reduce per-commit test time by 70-80%.
+
+## Screenshots To Add (Recommended)
+
+To keep this post grounded and non-generic, add these screenshots from real runs:
+
+1. Terminal output of model training (`python3 ml/train_selector.py`) showing F1 scores.
+2. Terminal output of selector (`python3 ci/select_tests.py --changed-files ...`) showing selected tests.
+3. Playwright full run summary (`6 passed`) vs selected run summary (`4 passed`).
+4. GitHub Actions run page for `.github/workflows/intelligent-test-selection.yml`.
+5. Optional architecture visual from `docs/architecture.md` converted to a clean diagram image.
+
+Use your own run logs/screenshots only. Avoid synthetic stock images.
 
 ## Repository
 
