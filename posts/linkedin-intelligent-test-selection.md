@@ -8,6 +8,9 @@ Large regression suites slow delivery because every commit runs everything.
 Approach:
 Train an ML model on historical commit change patterns and impacted tests, then run only predicted tests first.
 
+Architecture visual:
+https://raw.githubusercontent.com/srivastava-rajeev/intelligent-test-selection-ml/main/docs/images/architecture.jpg
+
 Example:
 If commit touches `inventory service`, model can select:
 - inventory tests
@@ -15,6 +18,9 @@ If commit touches `inventory service`, model can select:
 
 Result target:
 70-80% faster feedback loops (with fallback safety strategy).
+
+Prototype run visual:
+https://raw.githubusercontent.com/srivastava-rajeev/intelligent-test-selection-ml/main/docs/images/results-comparison.jpg
 
 Research note:
 This is an independent research-style project and does not use proprietary company data. The current training data is synthetic for reproducible experimentation.

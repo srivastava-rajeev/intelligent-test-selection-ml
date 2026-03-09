@@ -8,6 +8,8 @@ In this project, I built a practical prototype that predicts impacted Playwright
 
 This is an independent research-style implementation. I did not use proprietary company data. The current version is trained on synthetic, reproducible commit-impact history to validate the approach.
 
+![Intelligent Test Selection Architecture](https://raw.githubusercontent.com/srivastava-rajeev/intelligent-test-selection-ml/main/docs/images/architecture.jpg)
+
 ## The Problem
 
 When all tests run on every commit:
@@ -42,6 +44,8 @@ Model predicts:
 
 This gives much faster feedback compared to running all tests.
 
+![CI Runtime Comparison](https://raw.githubusercontent.com/srivastava-rajeev/intelligent-test-selection-ml/main/docs/images/results-comparison.jpg)
+
 ## Tech Stack
 
 - Playwright for test execution
@@ -62,18 +66,6 @@ The repository includes:
 Intelligent test selection is a practical way to improve CI throughput. With good historical data and conservative fallback strategy, teams can achieve significant speedups while preserving confidence.
 
 In many repositories this can reduce per-commit test time by 70-80%.
-
-## Screenshots To Add (Recommended)
-
-To keep this post grounded and non-generic, add these screenshots from real runs:
-
-1. Terminal output of model training (`python3 ml/train_selector.py`) showing F1 scores.
-2. Terminal output of selector (`python3 ci/select_tests.py --changed-files ...`) showing selected tests.
-3. Playwright full run summary (`6 passed`) vs selected run summary (`4 passed`).
-4. GitHub Actions run page for `.github/workflows/intelligent-test-selection.yml`.
-5. Optional architecture visual from `docs/architecture.md` converted to a clean diagram image.
-
-Use your own run logs/screenshots only. Avoid synthetic stock images.
 
 ## Repository
 

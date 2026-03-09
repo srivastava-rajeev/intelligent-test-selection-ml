@@ -42,6 +42,9 @@ Code Change -> Feature Extraction -> ML Selector -> Test Subset -> Playwright Ru
 
 See [docs/architecture.md](docs/architecture.md).
 
+![Architecture](docs/images/architecture.jpg)
+![Results Comparison](docs/images/results-comparison.jpg)
+
 ---
 
 ## Project Structure
