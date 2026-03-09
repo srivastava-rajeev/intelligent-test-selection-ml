@@ -82,6 +82,9 @@ jobs:
           print(f'Validated {len(files)} Python files in peer repo.')
           PY
 
+      - name: Install synthetic data dependencies (peer flaky repo)
+        run: pip install numpy pandas
+
       - name: Generate peer synthetic logs smoke artifact
         run: |
           cd peer-flaky
