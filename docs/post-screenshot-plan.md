@@ -4,6 +4,8 @@ Use real project evidence to make the post look authentic and engineering-led.
 
 ## Must-have images
 
+Status: architecture and results JPG assets are completed and available under `docs/images/`.
+
 1. Model training metrics
 - Command: `python3 ml/train_selector.py`
 - Capture: terminal block with `micro_f1`, `macro_f1`, `weighted_f1`
@@ -24,10 +26,10 @@ Use real project evidence to make the post look authentic and engineering-led.
 5. CI evidence
 - Capture GitHub Actions workflow run page and successful job status.
 
-## Optional image
+## Completed assets in repo
 
-- Architecture diagram showing the flow:
-  `Code Change -> Feature Extraction -> ML Selector -> Test Subset -> Playwright -> Feedback`
+- `docs/images/architecture.jpg`
+- `docs/images/results-comparison.jpg`
 
 ## Placement recommendation
 

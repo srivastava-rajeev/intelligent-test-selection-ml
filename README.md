@@ -137,11 +137,13 @@ SELECTED_TESTS="tests/playwright/tests/inventory.spec.js,tests/playwright/tests/
 
 ---
 
-## Publish Plan
+## Content Assets
 
 - Dev.to draft: [posts/devto-intelligent-test-selection.md](posts/devto-intelligent-test-selection.md)
 - LinkedIn draft: [posts/linkedin-intelligent-test-selection.md](posts/linkedin-intelligent-test-selection.md)
 - Screenshot guide: [docs/post-screenshot-plan.md](docs/post-screenshot-plan.md)
+- Live Dev.to post: [Machine Learning Based Intelligent Test Selection for Faster CI/CD Pipelines](https://dev.to/rajeevsrivastava/machine-learning-based-intelligent-test-selection-for-faster-cicd-pipelines-2ela)
+- Live LinkedIn post: [LinkedIn activity post](https://www.linkedin.com/feed/update/urn:li:activity:7436561473549701122/)
 
 ---
 
