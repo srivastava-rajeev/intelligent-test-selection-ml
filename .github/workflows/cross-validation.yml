@@ -1,0 +1,100 @@
+name: Cross Validation
+
+on:
+  pull_request:
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+jobs:
+  peer-flaky-smoke:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout current repo
+        uses: actions/checkout@v4
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Validate current repo Python syntax
+        run: |
+          python - <<'PY'
+          import pathlib
+          import py_compile
+
+          roots = [
+              'ml',
+              'ci',
+          ]
+          files = []
+          for root in roots:
+              p = pathlib.Path(root)
+              if p.exists():
+                  files.extend(p.rglob('*.py'))
+
+          if not files:
+              raise SystemExit('No Python files found for smoke validation.')
+
+          for f in files:
+              py_compile.compile(str(f), doraise=True)
+
+          print(f'Validated {len(files)} Python files in current repo.')
+          PY
+
+      - name: Generate current repo synthetic history smoke artifact
+        run: python ml/generate_synthetic_history.py
+
+      - name: Checkout peer repo (flaky-test-prediction-ml)
+        uses: actions/checkout@v4
+        with:
+          repository: srivastava-rajeev/flaky-test-prediction-ml
+          ref: main
+          path: peer-flaky
+
+      - name: Validate peer repo Python syntax
+        run: |
+          python - <<'PY'
+          import pathlib
+          import py_compile
+
+          roots = [
+              'peer-flaky/ml',
+              'peer-flaky/models',
+              'peer-flaky/feature_engineering',
+              'peer-flaky/ci_integration',
+          ]
+          files = []
+          for root in roots:
+              p = pathlib.Path(root)
+              if p.exists():
+                  files.extend(p.rglob('*.py'))
+
+          if not files:
+              raise SystemExit('No Python files found in peer repo.')
+
+          for f in files:
+              py_compile.compile(str(f), doraise=True)
+
+          print(f'Validated {len(files)} Python files in peer repo.')
+          PY
+
+      - name: Install synthetic data dependencies (peer flaky repo)
+        run: pip install numpy pandas
+
+      - name: Generate peer synthetic logs smoke artifact
+        run: |
+          cd peer-flaky
+          python feature_engineering/generate_synthetic_logs.py
+
+      - name: Set up Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: '20'
+
+
+      - name: Validate current Node runner syntax
+        run: node --check tests/playwright/run-selected.js
